@@ -1,0 +1,107 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvmuebju4idwv"]
+
+[ext_resource type="Texture2D" uid="uid://bwafcn1lj853o" path="res://Assets/tutorial/GJ_Tutorial_Screen_V3.png" id="1_fgp7c"]
+[ext_resource type="Script" path="res://Skripts/TutorialMain.cs" id="1_yhvdb"]
+[ext_resource type="Texture2D" uid="uid://dbtaei73mtn0o" path="res://Assets/Buttons/GJ_Knöpfe_A.png" id="2_bduqs"]
+[ext_resource type="AudioStream" uid="uid://cxx0muf5gf533" path="res://sounds/click.wav" id="3_aas4v"]
+[ext_resource type="Texture2D" uid="uid://basfmdre32btb" path="res://Assets/Buttons/Ready.png" id="4_4vpp2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jjpx3"]
+
+[node name="Tutorial" type="CanvasLayer"]
+script = ExtResource("1_yhvdb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fgp7c")
+expand_mode = 1
+
+[node name="Click" type="AudioStreamPlayer" parent="TextureRect"]
+stream = ExtResource("3_aas4v")
+bus = &"Effect"
+
+[node name="Button" type="Button" parent="TextureRect"]
+self_modulate = Color(0.423529, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -93.0
+offset_top = -84.0
+offset_right = -32.0
+offset_bottom = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jjpx3")
+icon = ExtResource("2_bduqs")
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/Button"]
+visible = false
+modulate = Color(0.964706, 0.65098, 0.878431, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -9.5
+offset_top = -20.0
+offset_right = 10.5
+grow_horizontal = 2
+texture = ExtResource("4_4vpp2")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect/Button"]
+visible = false
+modulate = Color(0.647059, 0.607843, 0.643137, 1)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_right = 10.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_4vpp2")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="TextureRect/Button"]
+visible = false
+modulate = Color(0.905882, 0.972549, 0.141176, 1)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -10.0
+offset_right = 21.0
+offset_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_4vpp2")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="TextureRect/Button"]
+visible = false
+modulate = Color(0.407843, 0.8, 0.905882, 1)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -10.0
+offset_right = -1.0
+offset_bottom = 10.0
+grow_vertical = 2
+texture = ExtResource("4_4vpp2")
+expand_mode = 1

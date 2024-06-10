@@ -1,0 +1,110 @@
+[gd_scene load_steps=13 format=3 uid="uid://d26jkfq4l5khs"]
+
+[ext_resource type="Script" path="res://FlyCode/FlyController.cs" id="1_fdjky"]
+[ext_resource type="Texture2D" uid="uid://b1yr4pohnbqsy" path="res://FlyAssets/FlySprites/GJ_Fliege_Gelb_Spritesheet.png" id="2_dysdh"]
+[ext_resource type="Script" path="res://FlyCode/FlySprite2D.cs" id="3_xc0w2"]
+[ext_resource type="Script" path="res://FlyCode/FlyAnimationPlayer.gd" id="4_3vkqc"]
+[ext_resource type="Texture2D" uid="uid://cux3inyc8u6hg" path="res://FlyAssets/EmissionSprites/GJ_Staubkorn_01.png" id="5_pmy1b"]
+[ext_resource type="Script" path="res://FlyCode/ParticleEmitter.cs" id="6_5je3b"]
+[ext_resource type="AudioStream" uid="uid://pjim7tn8kiwq" path="res://sounds/fly dash1.wav" id="7_40uj8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_be12a"]
+
+[sub_resource type="Animation" id="Animation_gm7bd"]
+resource_name = "Flying"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_ml8mt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1kflt"]
+_data = {
+"Flying": SubResource("Animation_gm7bd"),
+"RESET": SubResource("Animation_ml8mt")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ty1qc"]
+radius = 13.0384
+
+[node name="Fly" type="CharacterBody2D"]
+position = Vector2(558, 351)
+disable_mode = 2
+wall_min_slide_angle = 3.14159
+floor_constant_speed = true
+floor_max_angle = 0.0
+safe_margin = 0.001
+script = ExtResource("1_fdjky")
+
+[node name="FlyArea2D" type="Area2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlyArea2D"]
+scale = Vector2(1.2, 1.2)
+shape = SubResource("CircleShape2D_be12a")
+
+[node name="FlySprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0336252, 0.0336252)
+texture = ExtResource("2_dysdh")
+hframes = 5
+frame = 1
+script = ExtResource("3_xc0w2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FlySprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_1kflt")
+}
+script = ExtResource("4_3vkqc")
+
+[node name="ParticleEmitter" type="CPUParticles2D" parent="."]
+emitting = false
+lifetime = 0.3
+explosiveness = 0.2
+randomness = 0.1
+lifetime_randomness = 0.33
+draw_order = 1
+texture = ExtResource("5_pmy1b")
+emission_shape = 1
+emission_sphere_radius = 29.45
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.1
+initial_velocity_max = 50.51
+scale_amount_min = 0.05
+scale_amount_max = 0.05
+script = ExtResource("6_5je3b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_ty1qc")
+
+[node name="FlySound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-558, -351)
+stream = ExtResource("7_40uj8")
+pitch_scale = 0.92
+attenuation = 1.46409
+bus = &"Effect"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bb1nbxg87rn62"
+path="res://.godot/imported/instrumental 1min.mp3-f4c8f0311a1c02f4f927fb1caff03f90.mp3str"
+
+[deps]
+
+source_file="res://sounds/instrumental 1min.mp3"
+dest_files=["res://.godot/imported/instrumental 1min.mp3-f4c8f0311a1c02f4f927fb1caff03f90.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

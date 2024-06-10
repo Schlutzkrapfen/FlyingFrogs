@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctn4rlhjg06d0"]
+
+[ext_resource type="Script" path="res://Skripts/frog_controller.cs" id="1_hk76b"]
+[ext_resource type="PackedScene" uid="uid://c3val6et4c55l" path="res://Scenes/Level1/player_controller.tscn" id="1_r3xnr"]
+[ext_resource type="Script" path="res://Scripts/player_controller.gd" id="2_x8147"]
+
+[node name="frogController" type="Node2D"]
+script = ExtResource("1_hk76b")
+
+[node name="player_controller0" parent="." instance=ExtResource("1_r3xnr")]
+position = Vector2(1105, 143)
+script = ExtResource("2_x8147")
+
+[node name="player_controller1" parent="." instance=ExtResource("1_r3xnr")]
+position = Vector2(59, 140)
+script = ExtResource("2_x8147")
+thisplayer_id = 1
+
+[node name="player_controller2" parent="." instance=ExtResource("1_r3xnr")]
+position = Vector2(54, 595)
+script = ExtResource("2_x8147")
+thisplayer_id = 2
+
+[node name="player_controller3" parent="." instance=ExtResource("1_r3xnr")]
+position = Vector2(1107, 604)
+script = ExtResource("2_x8147")
+thisplayer_id = 3

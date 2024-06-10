@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://bggl2n1l21ey2"]
+
+[ext_resource type="Texture2D" uid="uid://bsga82mcym0ty" path="res://Assets/Platzhalter/WhatsApp Image 2024-03-09 at 11.39.29.jpeg" id="1_ha6ns"]
+[ext_resource type="Theme" uid="uid://b4w36bywchog6" path="res://Assets/Theme/MainMenu.tres" id="2_te1ty"]
+[ext_resource type="Script" path="res://Skripts/Quit.cs" id="3_3k4k5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pk3nk"]
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_ha6ns")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.29
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="VSplitContainer" type="VSplitContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+
+[node name="Start" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+theme = ExtResource("2_te1ty")
+text = "Start"
+
+[node name="VSplitContainer3" type="VSplitContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer"]
+material = SubResource("CanvasItemMaterial_pk3nk")
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+theme = ExtResource("2_te1ty")
+text = "Quit"
+script = ExtResource("3_3k4k5")
+
+[node name="VSplitContainer2" type="VSplitContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[connection signal="button_up" from="HBoxContainer/VBoxContainer/Button" to="HBoxContainer/VBoxContainer/Button" method="_on_button_up"]

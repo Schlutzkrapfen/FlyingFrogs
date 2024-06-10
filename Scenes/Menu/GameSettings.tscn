@@ -1,0 +1,355 @@
+[gd_scene load_steps=21 format=3 uid="uid://dxsn8lo83w3e7"]
+
+[ext_resource type="Theme" uid="uid://b4w36bywchog6" path="res://Assets/Theme/MainMenu.tres" id="1_adtfq"]
+[ext_resource type="Script" path="res://Skripts/GameSettings.cs" id="1_lkw5w"]
+[ext_resource type="Texture2D" uid="uid://c5q3srl8k3rs2" path="res://Assets/Buttons/GJ_Pfeil_V2.png" id="2_4sntn"]
+[ext_resource type="PackedScene" uid="uid://bqfifml5x8lvu" path="res://Scenes/Menu/BotSettings.tscn" id="2_o70f4"]
+[ext_resource type="Texture2D" uid="uid://70jnh0nqm5ht" path="res://Assets/Buttons/GJ_Pfeil_V1.png" id="3_vxak5"]
+[ext_resource type="Texture2D" uid="uid://bae0j56rswul2" path="res://Assets/Buttons/GJ_Knöpfe_Y.png" id="4_e1yy1"]
+[ext_resource type="Texture2D" uid="uid://b38hfv5k7khgt" path="res://Assets/Buttons/GJ_Pfeil_V2_down.png" id="4_m5yh6"]
+[ext_resource type="Texture2D" uid="uid://dbtaei73mtn0o" path="res://Assets/Buttons/GJ_Knöpfe_A.png" id="5_xj71u"]
+[ext_resource type="Texture2D" uid="uid://criwy1rtp1svs" path="res://Assets/Buttons/GJ_Pfeil_V1_down.png" id="6_5t46u"]
+[ext_resource type="Texture2D" uid="uid://bltlnmgtj7wmt" path="res://Assets/Buttons/GJ_Knöpfe_B.png" id="6_fvmm0"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kmefw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6hown"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ilypd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p2wlt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bamjf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cin3k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fkon0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ll0os"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_osx8n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l850m"]
+
+[node name="ColorRect" type="ColorRect"]
+visible = false
+size_flags_horizontal = 3
+color = Color(0.996078, 0.560784, 0.227451, 0.462745)
+script = ExtResource("1_lkw5w")
+
+[node name="ColorRect" parent="." instance=ExtResource("2_o70f4")]
+visible = false
+layout_mode = 0
+
+[node name="PopUpMenu" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_right = 1150.0
+offset_bottom = 643.0
+
+[node name="HSplitContainer" type="HSplitContainer" parent="PopUpMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopUpMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="PopUpMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PopUpMenu/VBoxContainer/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_adtfq")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "Game Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="PopUpMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme = ExtResource("1_adtfq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopUpMenu/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSplitContainer2" type="VSplitContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSplitContainer" type="HSplitContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureButton" type="TextureButton" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+texture_normal = ExtResource("2_4sntn")
+texture_pressed = ExtResource("4_m5yh6")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="OptionButton" type="OptionButton" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.5
+focus_neighbor_bottom = NodePath("../../HBoxContainer2/OptionButton2")
+focus_mode = 0
+mouse_filter = 2
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.423529, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_icons/arrow = SubResource("CanvasTexture_kmefw")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6hown")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ilypd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_p2wlt")
+disabled = true
+alignment = 1
+item_count = 2
+selected = 0
+popup/item_0/text = "Time"
+popup/item_0/id = 0
+popup/item_1/text = "Points"
+popup/item_1/id = 1
+
+[node name="TextureButton2" type="TextureButton" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+texture_normal = ExtResource("3_vxak5")
+texture_pressed = ExtResource("6_5t46u")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSplitContainer" type="HSplitContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureButton3" type="TextureButton" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+texture_normal = ExtResource("2_4sntn")
+texture_pressed = ExtResource("4_m5yh6")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="OptionButton2" type="OptionButton" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.5
+focus_neighbor_top = NodePath("../../HBoxContainer/OptionButton")
+focus_neighbor_bottom = NodePath("../../HBoxContainer3/CheckBox")
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.423529, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_icons/arrow = SubResource("CanvasTexture_kmefw")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6hown")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ilypd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bamjf")
+alignment = 1
+item_count = 3
+selected = 1
+popup/item_0/text = "1 min"
+popup/item_0/id = 0
+popup/item_1/text = "2 min"
+popup/item_1/id = 1
+popup/item_2/text = "3 min"
+popup/item_2/id = 2
+
+[node name="TextureButton4" type="TextureButton" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+texture_normal = ExtResource("3_vxak5")
+texture_pressed = ExtResource("6_5t46u")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSplitContainer" type="HSplitContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckBox" type="CheckBox" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.5
+focus_neighbor_top = NodePath("../../HBoxContainer2/OptionButton2")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cin3k")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fkon0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ll0os")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_osx8n")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_l850m")
+text = "Tutorial"
+alignment = 1
+icon_alignment = 1
+expand_icon = true
+language = "en"
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.02
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+alignment = 1
+
+[node name="HSplitContainer3" type="HSplitContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="Label" type="Label" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 15
+text = "Start"
+
+[node name="HSplitContainer" type="HSplitContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="TextureRect" type="TextureRect" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("4_e1yy1")
+expand_mode = 2
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="Label2" type="Label" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 15
+text = "Select"
+
+[node name="TextureRect3" type="TextureRect" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("5_xj71u")
+expand_mode = 2
+
+[node name="HSplitContainer6" type="HSplitContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="Label3" type="Label" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 15
+text = "Close"
+
+[node name="HSplitContainer4" type="HSplitContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="TextureRect2" type="TextureRect" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("6_fvmm0")
+expand_mode = 2
+
+[node name="HSplitContainer5" type="HSplitContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+alignment = 1
+
+[node name="HSplitContainer3" type="HSplitContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Label" type="Label" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 40.0
+theme_override_colors/font_color = Color(0.541176, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Can`t Start the Game Alone Please Press"
+
+[node name="TextureRect2" type="TextureRect" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer6"]
+modulate = Color(0.541176, 0, 0, 1)
+layout_mode = 2
+size_flags_stretch_ratio = 0.5
+texture = ExtResource("6_fvmm0")
+expand_mode = 2
+
+[node name="HSplitContainer5" type="HSplitContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="VSplitContainer" type="VSplitContainer" parent="PopUpMenu/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="VSplitContainer2" type="VSplitContainer" parent="PopUpMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="PopUpMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="button_up" from="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_button_up"]
+[connection signal="button_up" from="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer/TextureButton2" to="." method="_on_texture_button_2_button_up"]
+[connection signal="button_up" from="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer2/TextureButton3" to="." method="_on_texture_button_3_button_up"]
+[connection signal="item_selected" from="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer2/OptionButton2" to="." method="_on_option_button_2_item_selected"]
+[connection signal="button_up" from="PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer2/TextureButton4" to="." method="_on_texture_button_4_button_up"]

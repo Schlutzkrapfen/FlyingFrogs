@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=3 uid="uid://crkevx5yiqgn8"]
+
+[ext_resource type="Script" path="res://FlyCode/FlyController.cs" id="1_ti8vt"]
+[ext_resource type="Texture2D" uid="uid://cusfsej3n8rs6" path="res://TempAssets/heart.png" id="1_ungxm"]
+[ext_resource type="Texture2D" uid="uid://b1yr4pohnbqsy" path="res://FlyAssets/GJ_Fliege_Gelb_Spritesheet.png" id="2_ukqui"]
+[ext_resource type="Script" path="res://FlyCode/ParticleEmitter.cs" id="3_h76sr"]
+[ext_resource type="Script" path="res://FlyCode/FlySprite2D.cs" id="3_la2vb"]
+[ext_resource type="Script" path="res://FlyCode/FlyAnimationPlayer.gd" id="4_g0gu1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lvnyl"]
+radius = 14.0
+
+[sub_resource type="Animation" id="Animation_gm7bd"]
+resource_name = "Flying"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_ml8mt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1kflt"]
+_data = {
+"Flying": SubResource("Animation_gm7bd"),
+"RESET": SubResource("Animation_ml8mt")
+}
+
+[node name="Fly" type="Node"]
+
+[node name="Fly" type="CharacterBody2D" parent="."]
+script = ExtResource("1_ti8vt")
+
+[node name="Area2D" type="Area2D" parent="Fly"]
+scale = Vector2(0.0336252, 0.0336252)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fly/Area2D"]
+position = Vector2(-0.551724, -0.551724)
+scale = Vector2(0.551724, 0.551724)
+shape = SubResource("CapsuleShape2D_lvnyl")
+
+[node name="FlySprite2D" type="Sprite2D" parent="Fly"]
+scale = Vector2(0.0336252, 0.0336252)
+texture = ExtResource("2_ukqui")
+hframes = 5
+frame = 1
+script = ExtResource("3_la2vb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fly/FlySprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_1kflt")
+}
+script = ExtResource("4_g0gu1")
+
+[node name="ParticleEmitter" type="CPUParticles2D" parent="Fly"]
+emitting = false
+lifetime = 0.3
+explosiveness = 0.2
+randomness = 0.1
+lifetime_randomness = 0.33
+texture = ExtResource("1_ungxm")
+emission_shape = 1
+emission_sphere_radius = 16.52
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.1
+initial_velocity_max = 50.51
+script = ExtResource("3_h76sr")

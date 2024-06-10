@@ -1,0 +1,281 @@
+[gd_scene load_steps=18 format=3 uid="uid://evk0d2xpegva"]
+
+[ext_resource type="Script" path="res://Skripts/Quit.cs" id="1_kqe1w"]
+[ext_resource type="Texture2D" uid="uid://dx8odmw3udd0q" path="res://Assets/Platzhalter/GJ_Startbildschirm.png" id="1_mqvo8"]
+[ext_resource type="Theme" uid="uid://b4w36bywchog6" path="res://Assets/Theme/MainMenu.tres" id="2_3n6yn"]
+[ext_resource type="PackedScene" uid="uid://0e73l38as7ju" path="res://Scenes/Menu/Select_Menu.tscn" id="2_20uoc"]
+[ext_resource type="Texture2D" uid="uid://dbtaei73mtn0o" path="res://Assets/Buttons/GJ_Knöpfe_A.png" id="3_lrhxf"]
+[ext_resource type="AudioStream" uid="uid://bp4dwdccy2o2c" path="res://sounds/ambience.mp3" id="5_kt1wj"]
+[ext_resource type="Texture2D" uid="uid://t2nq1x0xkf53" path="res://Assets/Buttons/GJ_Knöpfe_X.png" id="5_yyggn"]
+[ext_resource type="AudioStream" uid="uid://cxx0muf5gf533" path="res://sounds/click.wav" id="6_5bmq0"]
+[ext_resource type="PackedScene" uid="uid://dealy4n30pwwv" path="res://Scenes/Menu/settings.tscn" id="6_a61p5"]
+[ext_resource type="Texture2D" uid="uid://bltlnmgtj7wmt" path="res://Assets/Buttons/GJ_Knöpfe_B.png" id="7_r2k70"]
+[ext_resource type="Texture2D" uid="uid://323ldxb7oosq" path="res://Assets/Buttons/Background.png" id="8_y602j"]
+[ext_resource type="PackedScene" uid="uid://dxsn8lo83w3e7" path="res://Scenes/Menu/GameSettings.tscn" id="10_vrlax"]
+[ext_resource type="Texture2D" uid="uid://bnwqltnx8prsh" path="res://Assets/tutorial/GJ_Tutorial_Screen_V5.png" id="11_2112e"]
+[ext_resource type="AudioStream" uid="uid://drgqva6kxh6bd" path="res://sounds/start aufladen.wav" id="12_5mrh5"]
+[ext_resource type="Script" path="res://Skripts/tutorial.cs" id="12_eayjp"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g5ca4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vfvft"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+offset_right = 1150.0
+offset_bottom = 643.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_mqvo8")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="HSplitContainer4" type="HSplitContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Settings" parent="CanvasLayer/MarginContainer/HBoxContainer/HSplitContainer4" instance=ExtResource("6_a61p5")]
+visible = false
+layout_mode = 2
+size_flags_stretch_ratio = 2.0
+theme = ExtResource("2_3n6yn")
+
+[node name="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/HSplitContainer4/Settings/Panel/VBoxContainer/HBoxContainer6" index="2"]
+action_mode = 0
+
+[node name="HSplitContainer3" type="HSplitContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="VSplitContainer" type="VSplitContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+
+[node name="Start" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+focus_mode = 0
+theme = ExtResource("2_3n6yn")
+text = "Start"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Start"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Start/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Start/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.15
+texture = ExtResource("3_lrhxf")
+expand_mode = 4
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Start/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="VSplitContainer3" type="VSplitContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Settings" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_3n6yn")
+text = "Settings"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Settings/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Settings/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.15
+texture = ExtResource("5_yyggn")
+expand_mode = 4
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Settings/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="VSplitContainer4" type="VSplitContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Quit" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+material = SubResource("CanvasItemMaterial_g5ca4")
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+focus_mode = 0
+theme = ExtResource("2_3n6yn")
+text = "Quit"
+script = ExtResource("1_kqe1w")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Quit/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Quit/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.15
+texture = ExtResource("7_r2k70")
+expand_mode = 4
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Quit/HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.5
+offset_top = -25.5
+offset_right = 1016.5
+offset_bottom = 1017.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.05, 0.05)
+theme = ExtResource("2_3n6yn")
+max_value = 30.0
+step = 0.1
+fill_mode = 4
+texture_progress = ExtResource("8_y602j")
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Quit/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="VSplitContainer2" type="VSplitContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="SelectMenu" parent="CanvasLayer/MarginContainer" instance=ExtResource("2_20uoc")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="ColorRect" parent="CanvasLayer/MarginContainer" instance=ExtResource("10_vrlax")]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/MarginContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("11_2112e")
+expand_mode = 1
+script = ExtResource("12_eayjp")
+
+[node name="AButton" type="Button" parent="CanvasLayer/MarginContainer/TextureRect2"]
+layout_mode = 0
+offset_left = 1067.0
+offset_top = 574.0
+offset_right = 1128.0
+offset_bottom = 635.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vfvft")
+icon = ExtResource("3_lrhxf")
+expand_icon = true
+
+[node name="MainMenuSound" type="Node2D" parent="."]
+
+[node name="Ambiente" type="AudioStreamPlayer2D" parent="MainMenuSound"]
+stream = ExtResource("5_kt1wj")
+autoplay = true
+bus = &"Music"
+
+[node name="Click" type="AudioStreamPlayer" parent="MainMenuSound"]
+stream = ExtResource("6_5bmq0")
+bus = &"Effect"
+
+[node name="ChargeQuit" type="AudioStreamPlayer" parent="MainMenuSound"]
+stream = ExtResource("12_5mrh5")
+bus = &"Effect"
+
+[node name="YouCantDothisAlone" type="AudioStreamPlayer" parent="MainMenuSound"]
+bus = &"Effect"
+
+[connection signal="button_up" from="CanvasLayer/MarginContainer/HBoxContainer/HSplitContainer4/Settings/Panel/VBoxContainer/HBoxContainer6/Button" to="CanvasLayer/MarginContainer/TextureRect2" method="_on_button_button_up"]
+[connection signal="button_up" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Start" to="CanvasLayer/MarginContainer/SelectMenu" method="_on_start_button_up"]
+[connection signal="button_up" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Settings" to="CanvasLayer/MarginContainer/HBoxContainer/HSplitContainer4/Settings" method="_on_settings_button_up"]
+[connection signal="button_up" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Quit" to="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Quit" method="_on_button_up"]
+[connection signal="button_up" from="CanvasLayer/MarginContainer/ColorRect/PopUpMenu/VBoxContainer/Panel/VBoxContainer/HBoxContainer3/CheckBox" to="CanvasLayer/MarginContainer/SelectMenu" method="_on_check_box_button_up"]
+[connection signal="button_up" from="CanvasLayer/MarginContainer/TextureRect2/AButton" to="CanvasLayer/MarginContainer/TextureRect2" method="_on_a_button_button_up"]
+
+[editable path="CanvasLayer/MarginContainer/HBoxContainer/HSplitContainer4/Settings"]
+[editable path="CanvasLayer/MarginContainer/ColorRect"]

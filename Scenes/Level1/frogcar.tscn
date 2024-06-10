@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://8fqx7wfvowrs"]
+
+[ext_resource type="Script" path="res://Scripts/tongue.gd" id="1_356y6"]
+[ext_resource type="Texture2D" uid="uid://7p4jpxp414kx" path="res://Assets/carspritesheet.png" id="1_skphi"]
+[ext_resource type="Texture2D" uid="uid://bqhogtgpkvcd" path="res://Assets/Frosche/GJ_Zunge_Lang.png" id="2_0uis6"]
+[ext_resource type="Script" path="res://Skripts/tongueColls.cs" id="3_2nnld"]
+[ext_resource type="AudioStream" uid="uid://dl0o64rh6padt" path="res://sounds/catch.wav" id="4_bngwi"]
+[ext_resource type="AudioStream" uid="uid://b7lrpeael6iji" path="res://sounds/zunge.wav" id="5_3knx5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_glgbl"]
+height = 522.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fa6tw"]
+custom_solver_bias = 0.698
+radius = 46.0
+height = 142.0
+
+[node name="Frogcar" type="CharacterBody2D"]
+
+[node name="tongue" type="CharacterBody2D" parent="."]
+script = ExtResource("1_356y6")
+
+[node name="Sprite2D" type="Sprite2D" parent="tongue"]
+position = Vector2(3.05176e-05, 622)
+scale = Vector2(0.220588, 0.37829)
+texture = ExtResource("2_0uis6")
+
+[node name="Area2D" type="Area2D" parent="tongue"]
+script = ExtResource("3_2nnld")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tongue/Area2D"]
+position = Vector2(0, 200)
+scale = Vector2(1.2, 1)
+shape = SubResource("CapsuleShape2D_glgbl")
+
+[node name="CatchFly" type="AudioStreamPlayer2D" parent="tongue/Area2D"]
+stream = ExtResource("4_bngwi")
+bus = &"Effect"
+
+[node name="toungeSound" type="AudioStreamPlayer2D" parent="tongue"]
+stream = ExtResource("5_3knx5")
+bus = &"Effect"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_skphi")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 33)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_fa6tw")
+
+[connection signal="area_entered" from="tongue/Area2D" to="tongue/Area2D" method="_on_area_entered"]

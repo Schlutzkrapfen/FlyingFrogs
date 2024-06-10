@@ -1,0 +1,247 @@
+[gd_scene load_steps=4 format=3 uid="uid://dealy4n30pwwv"]
+
+[ext_resource type="Script" path="res://Skripts/settings.cs" id="1_qses6"]
+[ext_resource type="Texture2D" uid="uid://dbtaei73mtn0o" path="res://Assets/Buttons/GJ_Knöpfe_A.png" id="2_im5ka"]
+[ext_resource type="Texture2D" uid="uid://bltlnmgtj7wmt" path="res://Assets/Buttons/GJ_Knöpfe_B.png" id="3_76vjb"]
+
+[node name="Settings" type="VBoxContainer"]
+size_flags_horizontal = 3
+script = ExtResource("1_qses6")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HSplitContainer3" type="HSplitContainer" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.7
+text = "Fullscreen"
+
+[node name="OptionButton" type="OptionButton" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+focus_neighbor_bottom = NodePath("../../HBoxContainer3/HSlider")
+alignment = 1
+item_count = 3
+selected = 0
+popup/item_0/text = "Window"
+popup/item_0/id = 0
+popup/item_1/text = "Maximized"
+popup/item_1/id = 2
+popup/item_2/text = "Fullscreen"
+popup/item_2/id = 3
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="VSplitContainer5" type="VSplitContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HSplitContainer3" type="HSplitContainer" parent="Panel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.7
+text = "Music"
+
+[node name="HSlider" type="HSlider" parent="Panel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 1.5
+focus_neighbor_top = NodePath("../../HBoxContainer/OptionButton")
+focus_neighbor_bottom = NodePath("../../HBoxContainer4/HSliderEffects")
+min_value = -41.0
+max_value = 20.0
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="Panel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="VSplitContainer4" type="VSplitContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HSplitContainer3" type="HSplitContainer" parent="Panel/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.7
+text = "Soundeffects"
+
+[node name="HSliderEffects" type="HSlider" parent="Panel/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 1.5
+focus_neighbor_top = NodePath("../../HBoxContainer3/HSlider")
+min_value = -41.0
+max_value = 20.0
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="Panel/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="VSplitContainer7" type="VSplitContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HSplitContainer3" type="HSplitContainer" parent="Panel/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.7
+text = "How to Play"
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+text = "Tutorial"
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="Panel/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="VSplitContainer3" type="VSplitContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="ColorRect" type="ColorRect" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.04
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HSplitContainer3" type="HSplitContainer" parent="Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 15
+text = "Select"
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("2_im5ka")
+expand_mode = 2
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 15
+text = "Close"
+
+[node name="HSplitContainer4" type="HSplitContainer" parent="Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("3_76vjb")
+expand_mode = 2
+
+[node name="HSplitContainer5" type="HSplitContainer" parent="Panel/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="VSplitContainer6" type="VSplitContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="VSplitContainer2" type="VSplitContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+
+[connection signal="item_selected" from="Panel/VBoxContainer/HBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="value_changed" from="Panel/VBoxContainer/HBoxContainer3/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="changed" from="Panel/VBoxContainer/HBoxContainer4/HSliderEffects" to="." method="_on_h_slider_effects_changed"]
+[connection signal="drag_ended" from="Panel/VBoxContainer/HBoxContainer4/HSliderEffects" to="." method="_on_h_slider_effects_drag_ended"]
+[connection signal="value_changed" from="Panel/VBoxContainer/HBoxContainer4/HSliderEffects" to="." method="_on_h_slider_effects_value_changed"]

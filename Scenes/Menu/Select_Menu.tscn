@@ -1,0 +1,671 @@
+[gd_scene load_steps=35 format=3 uid="uid://0e73l38as7ju"]
+
+[ext_resource type="Script" path="res://Skripts/Start.cs" id="1_a8ydp"]
+[ext_resource type="FontFile" uid="uid://6gvpttp4iokn" path="res://Assets/Fonts/Pacifico/Pacifico-Regular.ttf" id="2_kqx4e"]
+[ext_resource type="Texture2D" uid="uid://b6yvkmuyl3l4v" path="res://Assets/Frosche/GJ_Froschauto_Pink_R.png" id="3_iyn0x"]
+[ext_resource type="Texture2D" uid="uid://bnsdufyxg4kvg" path="res://Assets/Frosche/GJ_Froschauto_Schwarz_R.png" id="4_flfaa"]
+[ext_resource type="Texture2D" uid="uid://dbtaei73mtn0o" path="res://Assets/Buttons/GJ_Knöpfe_A.png" id="4_qeq3u"]
+[ext_resource type="Texture2D" uid="uid://36r2bc6puvvx" path="res://Assets/Frosche/GJ_Froschauto_Gelb_R.png" id="5_78t2b"]
+[ext_resource type="Texture2D" uid="uid://bltlnmgtj7wmt" path="res://Assets/Buttons/GJ_Knöpfe_B.png" id="5_f4kd1"]
+[ext_resource type="Texture2D" uid="uid://dy5hi6o4hwkqk" path="res://Assets/Frosche/GJ_Froschauto_Blau_R.png" id="6_df1qg"]
+[ext_resource type="AudioStream" uid="uid://cjgcivyjhsqmw" path="res://sounds/join.wav" id="8_ijxki"]
+[ext_resource type="AnimationLibrary" uid="uid://dysaa5rgad7fy" path="res://Animations/Player3Join.res" id="8_t7an1"]
+[ext_resource type="AudioStream" uid="uid://drgqva6kxh6bd" path="res://sounds/start aufladen.wav" id="9_5fqw8"]
+[ext_resource type="AudioStream" uid="uid://c8otoxo7nb2fk" path="res://sounds/oo.wav" id="12_l4v7c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwajm"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ytmv"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptrlp"]
+content_margin_left = 10.0
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7820q"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+shadow_color = Color(0, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_dfbxg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pgmqe"]
+_data = {
+"RESET": SubResource("Animation_dfbxg")
+}
+
+[sub_resource type="Animation" id="Animation_wskja"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_km86p"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ktvhx"]
+_data = {
+"Join": SubResource("Animation_wskja"),
+"Quit": SubResource("Animation_km86p")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqxgc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7nm2n"]
+content_margin_left = 10.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_famvw"]
+content_margin_left = 10.0
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33c4f"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+shadow_color = Color(0, 0, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_er75y"]
+
+[sub_resource type="Animation" id="Animation_qr418"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../PanelContainer2/HBoxContainer/VBoxContainer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6h84o"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../PanelContainer2/HBoxContainer/VBoxContainer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_whfjt"]
+_data = {
+"Join": SubResource("Animation_qr418"),
+"Quit": SubResource("Animation_6h84o")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o8aeu"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7uajy"]
+
+[sub_resource type="Animation" id="Animation_b5qec"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../PanelContainer4/HBoxContainer/VBoxContainer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_chdwe"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../PanelContainer4/HBoxContainer/VBoxContainer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cvpwb"]
+_data = {
+"Join": SubResource("Animation_b5qec"),
+"Quit": SubResource("Animation_chdwe")
+}
+
+[node name="BoxContainer" type="BoxContainer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_a8ydp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+split_offset = 1030
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.964706, 0.65098, 0.878431, 1)
+theme_override_fonts/font = ExtResource("2_kqx4e")
+theme_override_font_sizes/font_size = 50
+text = "Player 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSplitContainer" type="VSplitContainer" parent="HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+
+[node name="Button0" type="Button" parent="HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/VSplitContainer"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 1
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_bwajm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0ytmv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ptrlp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7820q")
+text = "Close"
+icon = ExtResource("5_f4kd1")
+icon_alignment = 2
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_iyn0x")
+expand_mode = 4
+
+[node name="VSplitContainer2" type="VSplitContainer" parent="HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/VSplitContainer2"]
+layout_mode = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/VSplitContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/VSplitContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Press
+"
+horizontal_alignment = 1
+text_overrun_behavior = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/VSplitContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.14
+texture = ExtResource("4_qeq3u")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/VSplitContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.1
+theme_override_font_sizes/font_size = 50
+text = "To Join"
+horizontal_alignment = 1
+text_overrun_behavior = 1
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+split_offset = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer/HBoxContainer/HSplitContainer2"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="HBoxContainer/PanelContainer/HBoxContainer/HSplitContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/PanelContainer"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_pgmqe"),
+"Player0Join": SubResource("AnimationLibrary_ktvhx")
+}
+
+[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="HBoxContainer/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+split_offset = 1030
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.647059, 0.607843, 0.643137, 1)
+theme_override_fonts/font = ExtResource("2_kqx4e")
+theme_override_font_sizes/font_size = 50
+text = "Player 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSplitContainer" type="VSplitContainer" parent="HBoxContainer/PanelContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+
+[node name="Button1" type="Button" parent="HBoxContainer/PanelContainer2/HBoxContainer/VBoxContainer/VSplitContainer"]
+visible = false
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 1
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_nqxgc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nm2n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_famvw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_33c4f")
+text = "Leave"
+icon = ExtResource("5_f4kd1")
+icon_alignment = 2
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/PanelContainer2/HBoxContainer/VBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_flfaa")
+expand_mode = 4
+
+[node name="VSplitContainer2" type="VSplitContainer" parent="HBoxContainer/PanelContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer2/HBoxContainer/VBoxContainer/VSplitContainer2"]
+layout_mode = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="HBoxContainer/PanelContainer2/HBoxContainer/VBoxContainer/VSplitContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer2/HBoxContainer/VBoxContainer/VSplitContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Press
+"
+horizontal_alignment = 1
+text_overrun_behavior = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/PanelContainer2/HBoxContainer/VBoxContainer/VSplitContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.14
+texture = ExtResource("4_qeq3u")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="HBoxContainer/PanelContainer2/HBoxContainer/VBoxContainer/VSplitContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.1
+theme_override_font_sizes/font_size = 50
+text = "To Join"
+horizontal_alignment = 1
+text_overrun_behavior = 1
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="HBoxContainer/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+split_offset = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer2/HBoxContainer/HSplitContainer2"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="HBoxContainer/PanelContainer2/HBoxContainer/HSplitContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/PanelContainer2"]
+root_node = NodePath("../../PanelContainer/AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_er75y"),
+"Player1Join": SubResource("AnimationLibrary_whfjt")
+}
+
+[node name="PanelContainer3" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer3"]
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="HBoxContainer/PanelContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+split_offset = 1030
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.972549, 0.141176, 1)
+theme_override_fonts/font = ExtResource("2_kqx4e")
+theme_override_font_sizes/font_size = 50
+text = "Player 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSplitContainer" type="VSplitContainer" parent="HBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+
+[node name="Button2" type="Button" parent="HBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer/VSplitContainer"]
+visible = false
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 1
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_nqxgc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nm2n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_famvw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_33c4f")
+text = "Leave"
+icon = ExtResource("5_f4kd1")
+icon_alignment = 2
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("5_78t2b")
+expand_mode = 4
+
+[node name="VSplitContainer2" type="VSplitContainer" parent="HBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer/VSplitContainer2"]
+layout_mode = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="HBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer/VSplitContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer/VSplitContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Press
+"
+horizontal_alignment = 1
+text_overrun_behavior = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer/VSplitContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.14
+texture = ExtResource("4_qeq3u")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="HBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer/VSplitContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.1
+theme_override_font_sizes/font_size = 50
+text = "To Join"
+horizontal_alignment = 1
+text_overrun_behavior = 1
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="HBoxContainer/PanelContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+split_offset = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer3/HBoxContainer/HSplitContainer2"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="HBoxContainer/PanelContainer3/HBoxContainer/HSplitContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/PanelContainer3"]
+root_node = NodePath("../../PanelContainer/AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_o8aeu"),
+"Player2Join": ExtResource("8_t7an1")
+}
+
+[node name="PanelContainer4" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer4"]
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="HBoxContainer/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+split_offset = 1030
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer4/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.407843, 0.8, 0.905882, 1)
+theme_override_fonts/font = ExtResource("2_kqx4e")
+theme_override_font_sizes/font_size = 50
+text = "Player 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSplitContainer" type="VSplitContainer" parent="HBoxContainer/PanelContainer4/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+
+[node name="Button3" type="Button" parent="HBoxContainer/PanelContainer4/HBoxContainer/VBoxContainer/VSplitContainer"]
+visible = false
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 1
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_nqxgc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7nm2n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_famvw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_33c4f")
+text = "Leave"
+icon = ExtResource("5_f4kd1")
+icon_alignment = 2
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/PanelContainer4/HBoxContainer/VBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("6_df1qg")
+expand_mode = 4
+
+[node name="VSplitContainer2" type="VSplitContainer" parent="HBoxContainer/PanelContainer4/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer4/HBoxContainer/VBoxContainer/VSplitContainer2"]
+layout_mode = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="HBoxContainer/PanelContainer4/HBoxContainer/VBoxContainer/VSplitContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer4/HBoxContainer/VBoxContainer/VSplitContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Press
+"
+horizontal_alignment = 1
+text_overrun_behavior = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/PanelContainer4/HBoxContainer/VBoxContainer/VSplitContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.14
+texture = ExtResource("4_qeq3u")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="HBoxContainer/PanelContainer4/HBoxContainer/VBoxContainer/VSplitContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.1
+theme_override_font_sizes/font_size = 50
+text = "To Join"
+horizontal_alignment = 1
+text_overrun_behavior = 1
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="HBoxContainer/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+split_offset = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer4/HBoxContainer/HSplitContainer2"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="HBoxContainer/PanelContainer4/HBoxContainer/HSplitContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/PanelContainer4"]
+root_node = NodePath("../../PanelContainer/AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_7uajy"),
+"Player3Join": SubResource("AnimationLibrary_cvpwb")
+}
+
+[node name="Join" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ijxki")
+volume_db = 10.0
+bus = &"Effect"
+
+[node name="Load" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_5fqw8")
+bus = &"Effect"
+
+[node name="Leaf" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_l4v7c")
+bus = &"Effect"
+
+[connection signal="button_up" from="HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/VSplitContainer/Button0" to="." method="_on_button_0_button_up"]
+[connection signal="button_up" from="HBoxContainer/PanelContainer2/HBoxContainer/VBoxContainer/VSplitContainer/Button1" to="." method="_on_button_1_button_up"]
+[connection signal="button_up" from="HBoxContainer/PanelContainer3/HBoxContainer/VBoxContainer/VSplitContainer/Button2" to="." method="_on_button_2_button_up"]
+[connection signal="button_up" from="HBoxContainer/PanelContainer4/HBoxContainer/VBoxContainer/VSplitContainer/Button3" to="." method="_on_button_3_button_up"]

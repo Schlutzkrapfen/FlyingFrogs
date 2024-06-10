@@ -1,0 +1,167 @@
+[gd_scene load_steps=16 format=3 uid="uid://dtmb2xoul3jsx"]
+
+[ext_resource type="PackedScene" uid="uid://c4dserswhky3a" path="res://Scenes/Level1/pause_menu.tscn" id="1_8nhqr"]
+[ext_resource type="Script" path="res://Skripts/ObserverPosition.cs" id="1_dwn8l"]
+[ext_resource type="Texture2D" uid="uid://n8v63q6i2xcx" path="res://Assets/Level/GJ_Gameplay_BG_02.png" id="1_kat2f"]
+[ext_resource type="PackedScene" uid="uid://ctn4rlhjg06d0" path="res://Scenes/Level1/frog_controller.tscn" id="2_5n060"]
+[ext_resource type="PackedScene" uid="uid://d26jkfq4l5khs" path="res://fly.tscn" id="3_yxkjg"]
+[ext_resource type="PackedScene" uid="uid://bpbkq6plrvgo4" path="res://Scenes/Level1/TransitionEffect.tscn" id="6_k38r3"]
+[ext_resource type="Texture2D" uid="uid://jig3cs5p6k8v" path="res://Assets/Level/GJ_Gameplay_BG_Vorne.png" id="10_3vt71"]
+[ext_resource type="PackedScene" uid="uid://btn848mx8i5h8" path="res://Scenes/Level1/Ui.tscn" id="11_uhwwk"]
+[ext_resource type="AudioStream" uid="uid://cfmf7xfa3unkg" path="res://sounds/gameMusic.mp3" id="12_flc7c"]
+[ext_resource type="AudioStream" uid="uid://dyikyiqwt8h3r" path="res://sounds/instrumental 2min.mp3" id="12_nljqg"]
+[ext_resource type="Script" path="res://Skripts/Music.cs" id="13_47ld6"]
+[ext_resource type="AudioStream" uid="uid://bb1nbxg87rn62" path="res://sounds/instrumental 1min.mp3" id="13_ngumt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbyw6"]
+size = Vector2(150.185, 1534.72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpx0m"]
+size = Vector2(2808.02, 165.615)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7fbv"]
+
+[node name="Node2D" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_dwn8l")
+metadata/_edit_vertical_guides_ = [-553.0, 2186.0]
+metadata/_edit_horizontal_guides_ = [755.0, 349.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(578.5, 328.225)
+scale = Vector2(0.472266, 0.458021)
+texture = ExtResource("1_kat2f")
+
+[node name="frogController" parent="." instance=ExtResource("2_5n060")]
+position = Vector2(-3, 3)
+
+[node name="Fly" parent="." instance=ExtResource("3_yxkjg")]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(593, 323)
+scale = Vector2(0.463672, 0.451389)
+texture = ExtResource("10_3vt71")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+light_mask = 513
+visibility_layer = 513
+position = Vector2(625, 351)
+scale = Vector2(0.463672, 0.451389)
+collision_layer = 513
+collision_mask = 513
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+light_mask = 513
+visibility_layer = 513
+position = Vector2(-1410.48, -53.1692)
+shape = SubResource("RectangleShape2D_jbyw6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+light_mask = 513
+visibility_layer = 513
+position = Vector2(1181.87, -50.9538)
+shape = SubResource("RectangleShape2D_jbyw6")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+light_mask = 513
+visibility_layer = 513
+position = Vector2(-118.619, -700.9)
+shape = SubResource("RectangleShape2D_jpx0m")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+light_mask = 513
+visibility_layer = 513
+position = Vector2(-138.029, 713.354)
+shape = SubResource("RectangleShape2D_jpx0m")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+light_mask = 513
+visibility_layer = 513
+position = Vector2(79, 143)
+collision_layer = 513
+collision_mask = 513
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+light_mask = 513
+visibility_layer = 513
+rotation = 0.785398
+scale = Vector2(10, 20)
+shape = SubResource("RectangleShape2D_o7fbv")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+light_mask = 513
+visibility_layer = 513
+position = Vector2(1106, 137)
+collision_layer = 513
+collision_mask = 513
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+light_mask = 513
+visibility_layer = 513
+position = Vector2(-23, 6)
+rotation = -0.785398
+scale = Vector2(10, 20)
+shape = SubResource("RectangleShape2D_o7fbv")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+light_mask = 513
+visibility_layer = 513
+position = Vector2(1104, 571)
+collision_layer = 513
+collision_mask = 513
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+light_mask = 513
+visibility_layer = 513
+position = Vector2(-23, 6)
+rotation = 0.785398
+scale = Vector2(10, 20)
+shape = SubResource("RectangleShape2D_o7fbv")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+light_mask = 513
+visibility_layer = 513
+position = Vector2(100, 569)
+collision_layer = 513
+collision_mask = 513
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+light_mask = 513
+visibility_layer = 513
+position = Vector2(-23, 6)
+rotation = 2.35619
+scale = Vector2(10, 20)
+shape = SubResource("RectangleShape2D_o7fbv")
+
+[node name="TransitionEffect" parent="." instance=ExtResource("6_k38r3")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("11_uhwwk")]
+offset_left = -23.0
+offset_top = -3.0
+offset_right = 21.0
+offset_bottom = 5.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("1_8nhqr")]
+size_flags_horizontal = 6
+size_flags_vertical = 0
+
+[node name="Music" type="Node2D" parent="."]
+script = ExtResource("13_47ld6")
+
+[node name="BackgroundMusic1Min" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("13_ngumt")
+bus = &"Music"
+
+[node name="BackgroundMusic2Min" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("12_nljqg")
+bus = &"Music"
+
+[node name="BackgroundMusic3Min" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("12_flc7c")
+volume_db = -5.0
+bus = &"Music"

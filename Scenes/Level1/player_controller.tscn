@@ -1,0 +1,124 @@
+[gd_scene load_steps=11 format=3 uid="uid://c3val6et4c55l"]
+
+[ext_resource type="PackedScene" uid="uid://dgdohvis10k1w" path="res://Scenes/Level1/players.tscn" id="1_1s2q2"]
+[ext_resource type="PackedScene" uid="uid://8fqx7wfvowrs" path="res://Scenes/Level1/frogcar.tscn" id="2_umx5j"]
+[ext_resource type="Script" path="res://Scripts/frogcar.gd" id="3_ef2r6"]
+[ext_resource type="Texture2D" uid="uid://dbtaei73mtn0o" path="res://Assets/Buttons/GJ_Knöpfe_A.png" id="5_qh8ll"]
+[ext_resource type="Texture2D" uid="uid://bibo1ab4gy16y" path="res://Assets/Buttons/GJ_Joystick_Animation_F1.png" id="5_wkeqk"]
+[ext_resource type="Texture2D" uid="uid://dkcwx03ur4ksx" path="res://Assets/Buttons/GJ_Joystick_Animation_F2.png" id="6_pr1nn"]
+
+[sub_resource type="Animation" id="Animation_kkmcg"]
+resource_name = "MoveStick"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_wkeqk"), ExtResource("6_pr1nn")]
+}
+
+[sub_resource type="Animation" id="Animation_otdw7"]
+resource_name = "PressA"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TextureRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_3ui7w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TextureRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../TextureRect:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_qh8ll")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lyi7p"]
+_data = {
+"MoveStick": SubResource("Animation_kkmcg"),
+"PressA": SubResource("Animation_otdw7"),
+"RESET": SubResource("Animation_3ui7w")
+}
+
+[node name="player_controller" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_1s2q2")]
+position = Vector2(0, -219)
+
+[node name="Frogcar" parent="." instance=ExtResource("2_umx5j")]
+script = ExtResource("3_ef2r6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+offset_left = -60.0
+offset_top = -45.0
+offset_right = 59.0
+offset_bottom = 29.0
+size_flags_horizontal = 4
+texture = ExtResource("5_qh8ll")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../player")
+libraries = {
+"": SubResource("AnimationLibrary_lyi7p")
+}
