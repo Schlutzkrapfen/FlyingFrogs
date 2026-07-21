@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/Pacifico-Regular.ttf-a04877faa2ba5bc6b6cca089
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
+disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48
